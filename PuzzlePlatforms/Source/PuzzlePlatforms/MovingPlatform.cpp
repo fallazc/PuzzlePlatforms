@@ -20,3 +20,14 @@ void AMovingPlatform::Tick(float DeltaSeconds)
 	}
 }
 
+void AMovingPlatform::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (HasAuthority())
+	{
+		SetReplicates(true);
+		SetReplicateMovement(true);
+	}
+}
+
